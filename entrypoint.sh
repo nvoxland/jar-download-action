@@ -14,6 +14,7 @@ while [ $# -gt 0 ]; do
       ;;
     --outputDirectory=*)
       outputDirectory="${1#*=}"
+      ;;
     *)
       printf "***************************\n"
       printf "* Error: Invalid argument.*\n"
