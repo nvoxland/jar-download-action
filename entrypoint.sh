@@ -4,7 +4,7 @@
 while [ $# -gt 0 ]; do
   case "$1" in
     --artifactId=*)
-      $artifactId="${1#*=}"
+      artifactId="${1#*=}"
       ;;
     --groupId=*)
       groupId="${1#*=}"
