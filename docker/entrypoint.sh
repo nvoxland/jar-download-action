@@ -1,5 +1,6 @@
-#!/bin/sh -l
+#!/bin/bash
 
+repository="https://repo1.maven.org/maven2/"
 
 while [ $# -gt 0 ]; do
   case "$1" in
@@ -9,15 +10,18 @@ while [ $# -gt 0 ]; do
     --groupId=*)
       groupId="${1#*=}"
       ;;
-    --version=*)
-      version="${1#*=}"
-      ;;
     --outputDirectory=*)
       outputDirectory="${1#*=}"
       ;;
+    --repository=*)
+      repository="${1#*=}"
+      ;;
+    --version=*)
+      version="${1#*=}"
+      ;;
     *)
       printf "***************************\n"
-      printf "* Error: Invalid argument.*\n"
+      printf "* Error: Invalid argument '$1'\n"
       printf "***************************\n"
       exit 1
   esac
@@ -26,6 +30,7 @@ done
 
 mvn -B -f /builder.pom.xml  dependency:copy-dependencies -s /usr/share/maven/ref/settings-docker.xml \
   -DoutputDirectory=$(pwd)/$outputDirectory \
-  -Dwanted.groupId=${groupId} \
-  -Dwanted.artifactId=${artifactId} \
-  -Dwanted.version=${version}
+  -Dartifact.repository=${repository} \
+  -Dartifact.groupId=${groupId} \
+  -Dartifact.artifactId=${artifactId} \
+  -Dartifact.version=${version}

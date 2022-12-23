@@ -7,12 +7,18 @@
     <artifactId>builder</artifactId>
     <version>0.1-SNAPSHOT</version>
 
+    <repositories>
+        <repository>
+            <id>repo</id>
+            <url>${artifact.repository}</url>
+        </repository>
+    </repositories>
 
     <dependencies>
         <dependency>
-            <groupId>${wanted.groupId}</groupId>
-            <artifactId>${wanted.artifactId}</artifactId>
-            <version>${wanted.version}</version>
+            <groupId>${artifact.groupId}</groupId>
+            <artifactId>${artifact.artifactId}</artifactId>
+            <version>${artifact.version}</version>
         </dependency>
     </dependencies>
 

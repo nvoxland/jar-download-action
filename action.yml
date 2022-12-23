@@ -1,6 +1,6 @@
-name: 'Download Jar'
-description: 'Download a jar'
-author: 'nvoxland'
+name: Jar Download
+description: Download a jar and all it's dependencies
+author: nvoxland
 inputs:
   groupId:
     description: 'Group ID'
@@ -15,6 +15,10 @@ inputs:
     description: 'Directory to install to'
     required: false
     default: "."
+  repository:
+    description: 'Additional repository to download from'
+    required: false
+    default: "https://repo1.maven.org/maven2/"
 
 runs:
   using: 'docker'
@@ -24,3 +28,4 @@ runs:
     - --groupId=${{ inputs.groupId }}
     - --artifactId=${{ inputs.artifactId }}
     - --version=${{ inputs.version }}
+    - --repository=${{ inputs.repository }}
