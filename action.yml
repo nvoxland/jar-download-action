@@ -20,7 +20,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - -DoutputDirectory=${{ inputs.outputDirectory }}
-    - -Dwanted.groupId=${{ inputs.groupId }}
-    - -Dwanted.artifactId=${{ inputs.artifactId }}
-    - -Dwanted.version=${{ inputs.version }}
+    - --outputDirectory=${{ inputs.outputDirectory }}
+    - --groupId=${{ inputs.groupId }}
+    - --artifactId=${{ inputs.artifactId }}
+    - --version=${{ inputs.version }}
