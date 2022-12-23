@@ -20,7 +20,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - -DoutputDirectory=${{ inputs.outputDirectory }}
+    - -DoutputDirectory=${{ env.GITHUB_WORKSPACE }} ${{ inputs.outputDirectory }}
     - -Dwanted.groupId=${{ inputs.groupId }}
     - -Dwanted.artifactId=${{ inputs.artifactId }}
     - -Dwanted.version=${{ inputs.version }}
