@@ -1,0 +1,31 @@
+name: Jar Download
+description: Download a jar and all it's dependencies
+author: nvoxland
+inputs:
+  groupId:
+    description: 'Group ID'
+    required: true
+  artifactId:
+    description: 'Artifact ID'
+    required: true
+  version:
+    description: 'Artifact version'
+    required: true
+  outputDirectory:
+    description: 'Directory to install to'
+    required: false
+    default: "."
+  repository:
+    description: 'Additional repository to download from'
+    required: false
+    default: "https://repo1.maven.org/maven2/"
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - --outputDirectory=${{ inputs.outputDirectory }}
+    - --groupId=${{ inputs.groupId }}
+    - --artifactId=${{ inputs.artifactId }}
+    - --version=${{ inputs.version }}
+    - --repository=${{ inputs.repository }}
