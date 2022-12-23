@@ -1,6 +1,9 @@
 name: Jar Download
 description: Download a jar and all it's dependencies
-author: nvoxland
+author: Nathan Voxland
+branding:
+  icon: download-cloud
+  color: blue
 inputs:
   groupId:
     description: 'Group ID'
