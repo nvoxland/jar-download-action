@@ -1,0 +1,26 @@
+name: 'Download Jar'
+description: 'Download a jar'
+author: 'nvoxland'
+inputs:
+  groupId:
+    description: 'Group ID'
+    required: true
+  artifactId:
+    description: 'Artifact ID'
+    required: true
+  version:
+    description: 'Artifact version'
+    required: true
+  outputDirectory:
+    description: 'Directory to install to'
+    required: false
+    default: "."
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - -DoutputDirectory=${{ inputs.outputDirectory }}
+    - -Dwanted.groupId=${{ inputs.groupId }}
+    - -Dwanted.artifactId=${{ inputs.artifactId }}
+    - -Dwanted.version=${{ inputs.version }}
