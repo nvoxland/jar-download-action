@@ -17,7 +17,9 @@ Maven-compatible repositories such as [Maven Central](https://mvnrepository.com/
 Your package repository will tell you the groupId/artifactId and available versions. 
 
 For example, [the AWS SDK for Java](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk/1.12.370) page on Maven Central 
-tells you the groupId is `com.amazonaws`, the artifactId is `aws-java-sdk` and the version is `1.12.370`
+tells you the groupId is `com.amazonaws`, the artifactId is `aws-java-sdk` and the version is `1.12.370`. 
+
+Sometimes, you will see the coordinates are listed as a colon-separated list of `groupId:artifactId:version` like `com.amazonaws:aws-java-sdk:1.12.370`
 
 ## Usage
 
