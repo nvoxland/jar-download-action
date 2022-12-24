@@ -3,10 +3,9 @@
 The `jar-download` action allows you to easily download Java jar files in GitHub Actions -- including dependencies! 
 
 While Maven Central and other repositories do allow simple `curl` or `wget` downloads, it's up to you to manage the sometimes-complex URL. 
-Plus, most jars rely on other jars to also be downloaded and included which leads to an overly complex game of "what else do I have to download?"
+Plus, jars often rely on other jars leads to an overly complex game of "what else do I have to download?" a.k.a "wget-a-mole"
 
-This action allows you to simply specify the "coordinates" of the library you need to download, and through the magic of metadata  
-it will download everything you need.
+This action allows you to simply specify the "coordinates" of the library, and it will download everything you need.
 
 ## Finding Coordinates
 
@@ -34,11 +33,11 @@ tells you the groupId is `com.amazonaws`, the artifactId is `aws-java-sdk` and t
 steps:
 - uses: actions/checkout@v3
 
-- uses: nvoxland/jar-download-action@main
+- uses: nvoxland/jar-download-action@v1
   with:
-    groupId: com.mysql
-    artifactId: mysql-connector-j
-    version: 8.0.31
+    groupId: com.amazonaws
+    artifactId: aws-java-sdk
+    version: 1.12.370
     outputDirectory: app_libs
 
 - run: ls -l app_libs
@@ -46,7 +45,7 @@ steps:
 
 ## License
 
-The scripts and documentation in this project are released under the [Apache 2.0](LICENSE).
+The scripts and documentation in this project are released under the [Apache 2.0 License](LICENSE).
 
 ## Contributions
 
